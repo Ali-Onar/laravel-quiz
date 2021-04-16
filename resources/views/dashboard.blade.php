@@ -2,6 +2,5 @@
     <x-slot name="header">
         Anasayfa
     </x-slot>
-
-    <div class="alert alert-primary">Hello</div>
+    <div class="alert alert-primary">Bootstrap Alert</div>
 </x-app-layout>
