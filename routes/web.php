@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\AdminQuizController;
+// use App\Http\Controllers\AdminQuizController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\QuizController;
 

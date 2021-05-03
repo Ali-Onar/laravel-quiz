@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a17f3a9456f1516a8ba8cc8192854ce3",
+    "content-hash": "12fa8ed1258ebd1dae3916cbbc32c4c1",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -992,6 +992,60 @@
                 "source": "https://github.com/guzzle/psr7/tree/1.8.1"
             },
             "time": "2021-03-21T16:25:00+00:00"
+        },
+        {
+            "name": "herkod/laravel-tr",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/herkod/laravel-tr.git",
+                "reference": "c4fbddc0180968cc321e069e38e8f3a8e8498756"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/herkod/laravel-tr/zipball/c4fbddc0180968cc321e069e38e8f3a8e8498756",
+                "reference": "c4fbddc0180968cc321e069e38e8f3a8e8498756",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^6.0||^7.0||^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Herkod\\AppServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Herkod\\": "./src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Herkod",
+                    "email": "info@herkod.com"
+                }
+            ],
+            "description": "Laravel İçin Türkçe Çeviri Dosyaları",
+            "keywords": [
+                "lang",
+                "languages",
+                "laravel",
+                "localization",
+                "translation"
+            ],
+            "support": {
+                "issues": "https://github.com/herkod/laravel-tr/issues",
+                "source": "https://github.com/herkod/laravel-tr/tree/v1.0.0"
+            },
+            "time": "2020-09-18T21:59:44+00:00"
         },
         {
             "name": "jaybizzle/crawler-detect",
