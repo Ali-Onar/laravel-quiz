@@ -34,7 +34,7 @@
                         <td>{{substr($question->correct_answer, -1)}}. Cevap</td>
                         <td style="width:100px ">
                             <a href="{{route('questions.edit',[$quiz->id, $question->id])}}" class="btn btn-sm btn-success"><i class="fa fa-edit"></i></a>
-                            <a href="{{route('quizzes.destroy',$question->id)}}" class="btn btn-sm btn-danger"><i class="fa fa-times"></i></a>
+                            <a href="{{route('questions.destroy',[$quiz->id, $question->id])}}" class="btn btn-sm btn-danger"><i class="fa fa-times"></i></a>
                         </td>
                     </tr>
                     @endforeach
