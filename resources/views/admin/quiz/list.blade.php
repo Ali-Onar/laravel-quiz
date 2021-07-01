@@ -9,6 +9,7 @@
                 <thead>
                     <tr>
                         <th scope="col">Quiz</th>
+                        <th scope="col">Soru Sayısı</th>
                         <th scope="col">Durum</th>
                         <th scope="col">Bitiş Tarihi</th>
                         <th scope="col">İşlem</th>
@@ -18,12 +19,25 @@
                     @foreach ($quizzes as $quiz)
                     <tr>
                         <td>{{$quiz->title}}</td>
-                        <td>{{$quiz->status}}</td>
-                        <td>{{$quiz->finished_at}}</td>
+                        <td>{{$quiz->questions_count}}</td>
                         <td>
-                            <a href="{{route('questions.index',$quiz->id)}}" class="btn btn-sm btn-warning">
-                                <i class="fa fa-question"></i>
-                            </a>
+                            @switch($quiz->status)
+                                @case('publish')
+                                    <span class="badge badge-success">Aktif</span>
+                                    @break
+                                @case('passive')
+                                    <span class="badge badge-danger">Pasif</span>
+                                    @break
+                                @case('draft')
+                                    <span class="badge badge-warning">Taslak</span>
+                                    @break    
+                            @endswitch    
+                        </td>
+                        <td>
+                            <span title="{{ $quiz->finished_at }}">{{$quiz->finished_at ? $quiz->finished_at->diffForHumans() : '-'}}</span>
+                        </td>
+                        <td>
+                            <a href="{{route('questions.index',$quiz->id)}}" class="btn btn-sm btn-warning"><i class="fa fa-question"></i></a>
                             <a href="{{route('quizzes.edit',$quiz->id)}}" class="btn btn-sm btn-success"><i class="fa fa-edit"></i></a>
                             <a href="{{route('quizzes.destroy',$quiz->id)}}" class="btn btn-sm btn-danger"><i class="fa fa-times"></i></a>
                         </td>
