@@ -5,12 +5,14 @@ namespace App\Models;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Cviebrock\EloquentSluggable\Sluggable;
 
 class Quiz extends Model
 {
     use HasFactory;
+    use sluggable;
     
-    protected $fillable=['title', 'description', 'finished_at'];
+    protected $fillable=['title', 'description', 'finished_at', 'slug'];
 
     protected $dated = ['finished_at'];
 
@@ -20,5 +22,15 @@ class Quiz extends Model
 
     public function questions(){
         return $this->hasMany('App\Models\Question');
+    }
+
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                 'onUpdate' => true,
+                'source' => 'title'
+            ]
+        ];
     }
 }

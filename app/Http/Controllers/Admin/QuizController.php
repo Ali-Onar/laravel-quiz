@@ -24,7 +24,7 @@ class QuizController extends Controller
         if (request()->get('status')) {
             $quizzes = $quizzes->where('status', request()->get('status'));
         }
-        $quizzes = $quizzes->paginate(10);
+        $quizzes = $quizzes->paginate(5);
         return view('admin.quiz.list', compact('quizzes'));
     }
 
@@ -83,7 +83,7 @@ class QuizController extends Controller
     public function update(QuizUpdateRequest $request, $id)
     {
         $quiz = Quiz::find($id) ?? abort(404, 'Quiz Bulunamadı..!');
-        Quiz::where('id', $id)->update($request->except(['_method', '_token']));
+        Quiz::find($id)->update($request->except(['_method', '_token']));
         return redirect()->route('quizzes.index')->withSuccess('Quiz güncellemesi başarıyla gerçekleşti.');
     }
 
