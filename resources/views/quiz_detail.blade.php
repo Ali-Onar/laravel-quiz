@@ -6,7 +6,12 @@
                 <div class="row">
                     <div class="col-md-4">
                         <ul class="list-group">
-
+                            @if ($quiz->my_rank)
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Sıralama
+                                    <span class="badge badge-dark badge-pill">#{{ $quiz->my_rank}}</span>
+                                </li>
+                            @endif
                             @if ($quiz->my_result)
                                 <li class="list-group-item d-flex justify-content-between align-items-center">
                                     Puan
@@ -55,8 +60,8 @@
                                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                                 <strong class="h6">{{ $loop->iteration."." }}</strong>
                                                 <img src="{{ $result->user->profile_photo_url }}" class="w-8 rounded-full" alt="{{ $result->user->name }}">
-                                                {{ $result->user->name }}
-                                                <span class="badge badge-success badge-pill">{{ $result->point }}</span>
+                                                <span @if(auth()->user()->id == $result->user_id) class="text-success" @endif>{{ $result->user->name }}</span>
+                                                <span class="badge badge-info badge-pill">{{ $result->point }}</span>
                                             </li>
                                         @endforeach
                                     </ul>
