@@ -74,7 +74,7 @@
                          {{ $quiz->description }}</p>
                          @if ($quiz->my_result)
                              <a href="{{ route('quiz.join', $quiz->slug) }}" class="btn btn-primary btn-sm btn-block">Quiz'i Görüntüle</a>
-                         @else
+                         @elseif($quiz->finished_at > now())
                              <a href="{{ route('quiz.join', $quiz->slug) }}" class="btn btn-primary btn-sm btn-block">Quiz'e Katıl</a>
                          @endif
                         
